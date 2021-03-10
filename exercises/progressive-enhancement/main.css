@@ -1,0 +1,290 @@
+/* Styling en Scripting door Roeland, Gilliam, Jimmy & Merlijn */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong,sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; } article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; } body { line-height: 1; } ol, ul { list-style: none; } blockquote, q { quotes: none; } blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; } table { border-collapse: collapse; border-spacing: 0; }
+
+/* Styles */
+
+:root {
+  --color-bg: #181E2F;
+  --color-text: #fff;
+
+  --color-bulb: #555d77;
+  --color-bulb-on: #ead114;
+
+  --text-color: rgb(171, 178, 206);
+
+  --color-primary: #275fff;
+  --color-primary-hover: #366bff;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+header {
+    text-align: center;
+    padding: 3em 0;
+    font-weight: 800;
+    border-bottom: 5px solid var(--color-bulb);
+}
+
+header h1, header h2 {
+    display: block;
+}
+
+header h1 {
+    font-size: 3em;
+}
+
+header h2 {
+    font-size: 1.5em;
+}
+
+p {
+  margin-top: 20px;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.articleWrapper {
+    margin-top: 1em;
+    width: 30%;
+    height: fit-content;
+}
+
+/* Light */
+
+.light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-bulb);
+}
+
+.fit-light:hover .light-bulb {
+    animation: toggleLight 2s ease-in-out forwards;
+}
+
+.fit-light .light-bulb {
+    transition: animation 1s ease-in-out;
+}
+
+.light .light-bulb path:last-child {
+  fill-opacity: 0;
+}
+
+.fit-light .light-bulb path:last-child {
+  fill-opacity: 0;
+  transition: fill-opacity .3s ease 1s;
+}
+
+.fit-light:hover .light-bulb path:last-child,
+.light.is-on .light-bulb path:last-child {
+    fill-opacity: 1;
+}
+
+.light-cord {
+  position: relative;
+  width: 1px;
+  height: 100px;
+  background-color: #eee;
+}
+
+.light-cord::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -2px;
+  width: 5px;
+  height: 10px;
+  background-color: #eee;
+}
+
+.light-fitting {
+  background-color: #eee;
+  width: 24px;
+  height: 28px;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom: 0;
+  z-index: 1;
+}
+
+.articleWrapper:nth-of-type(1) .light-bulb {
+    transform: translateY(10px) rotateY(0deg);
+    transition: 1s ease-in-out;
+}
+
+.light-bulb {
+  width: 48px;
+  height: auto;
+  transform: translateY(-22px) rotateY(0deg);
+  transition: 0.2s ease-in;
+}
+
+@keyframes toggleLight {
+    0% {
+        color: var(--color-bulb);
+        transform: translateY(10px) rotateY(0deg);
+    }
+    50% {
+        transform: translateY(-22px) rotateY(360deg);
+    }
+    55% {
+        color: var(--color-bulb);
+    }
+    60% {
+        color: var(--color-bulb-on);
+    }
+    68% {
+        color: var(--color-bulb);
+    }
+    69% {
+        color: var(--color-bulb-on);
+    }
+    100% {
+        color: var(--color-bulb-on);
+        transform: translateY(-22px) rotateY(360deg);
+    }
+}
+
+/* light switch */
+.light-switch-container {
+  position: relative;
+}
+
+.light-switch {
+  position: absolute;
+  top: 200px;
+  left: 70%;
+  height: 50px;
+  width: 30px;
+  background-color: #FFF;
+  margin-top: 10px;
+  /* background from https://codepen.io/peiche/pen/vonqb */
+  background: -moz-linear-gradient(center top , #fff 1%, #e6e6e6 1%, #e6e6e6 50%, #ddd 1%, #ddd 51%, #fbfcfb 1%, #fbfcfb 85%, #bbb 1%, #bbb 86%, #c5c5c5 1%, #d2d2d2 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(0.01, #fff), color-stop(0.01, #e6e6e6), color-stop(0.5, #e6e6e6), color-stop(0.5, #ddd), color-stop(0.51, #ddd), color-stop(0.51, #fbfcfb), color-stop(0.85, #fbfcfb), color-stop(0.85, #c5c5c5), color-stop(1, #d2d2d2));
+}
+
+.light-switch-checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.light-switch-checkbox:checked + .light-switch {
+  /* background from https://codepen.io/peiche/pen/vonqb */
+  background: -moz-linear-gradient(center top , #fff 15%, #bbb 1%, #bbb 16%, #c5c5c5 1%, #d2d2d2 50%, #e6e6e6 1%, #e6e6e6 99%, #d2d2d2 1%, #d2d2d2 100%);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), color-stop(0.15, #FFF), color-stop(0.15, #BBB), color-stop(0.16, #BBB), color-stop(0.17, #C5C5C5), color-stop(0.5, #D2D2D2), color-stop(0.51, #E6E6E6), color-stop(0.99, #E6E6E6), color-stop(0.99, #D2D2D2), to(#D2D2D2));
+}
+
+.light-switch-checkbox:checked ~ .light .light-bulb,
+.light.is-on .light-bulb {
+  color: var(--color-bulb-on);
+}
+.light-switch-checkbox:checked ~ .light path:nth-of-type(4) {
+  fill-opacity: 1;
+}
+
+footer {
+    color: var(--text-color);
+    font-size: 1.2em;
+}
+
+.articleWrapper footer {
+    margin: 10%;
+}
+
+.articleWrapper footer p{
+    line-height: 1.7em;
+}
+
+body > footer {
+    display: block;
+    position: relative;
+    text-align: center;
+    padding-top: 2vh;
+    border-top: 5px solid var(--color-bulb);
+}
+
+
+/* Speech */
+.articleWrapper:nth-of-type(3) {
+  position: relative;
+}
+
+button {
+  position: relative;
+  height: 80px;
+  width: 80px;
+  top: 200px;
+  left: calc(55% + 80px);
+  transform: translateX(-50%);
+  border-radius: 100%;
+  position: absolute;
+  outline: 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 0.7em;
+}
+
+button:hover::after,
+button.is-active::after {
+  background-color: var(--color-primary-hover);
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  z-index: -1;
+}
+
+button.is-active::after {
+  animation: pulseAnimation 1s infinite;
+}
+
+.speech-result {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: #21283c;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform .2s ease-in-out, opacity .2s ease-in-out
+}
+
+.speech-result.is-speaking {
+  transform: none;
+  opacity: 1;
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1)
+  }
+
+  50% {
+    transform: scale(1.05)
+  }
+
+  100% {
+    transform: scale(1)
+  }
+}
