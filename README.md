@@ -16,6 +16,8 @@ Voor de eerste opdracht gaan we onderzoeken wat Progressive Enhancement is.
 
 - [Opdracht 1 - NPM install Progressive Enhancement](course/Opdracht1.md)
 
+#### Bekijk [hier de live demo](https://gv-minorweb.github.io/browser-technologies-2021/exercises/progressive-enhancement/) van opdracht 1.
+
 ### Opdracht 2 💔 Breek het Web
 
 Voor opdracht 2 ga je proberen het Web te laten 'breken' door (browser) features bewust uit te zetten. Wat gebeurt er als images, custom fonts, JavaScript, kleur, breedband internet niet optimaal werken? 
