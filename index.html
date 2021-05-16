@@ -1,280 +1,647 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="main.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-  <script src="main.js" defer></script>
-</head>
-<body>
-  <header>
-    <div class="container">
-      <h1>Vragenlijst Minor Web</h1>
-    </div>
-  </header>
-  
-  <main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/js/main.js" type="module"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Vragenlijst Minor Web</h1>
+      </div>
+    </header>
 
-    <div class="container">
-      <form action="">
-        <section>
-          <h2>1. Studentgegevens</h2>
+    <main>
+      <div class="container">
+        <form action="">
+          <section class="js-section">
+            <h2>1. Studentgegevens</h2>
 
-          <fieldset>
-            <legend>Wat is je naam?</legend>
-            <input id="name" name="name" type="text" required aria-label="Naam" aria-required="true">
-          </fieldset>
+            <fieldset
+              class="js-question"
+              data-error="Vul een naam in die uit alleen letters bestaat."
+            >
+              <legend>Wat is je naam?</legend>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                aria-required="true"
+                aria-label="Naam"
+                pattern="[A-Za-z]+"
+              />
+            </fieldset>
 
-          <fieldset>
-            <legend>Wat is je studentnummer?</legend>
-            <input id="student_number" name="student_number" type="text" required aria-label="Studentnummer" aria-required="true">
-          </fieldset>
-        </section>
+            <fieldset
+              class="js-question"
+              data-error="Alleen cijfers toegestaan."
+            >
+              <legend>Wat is je studentnummer?</legend>
+              <input
+                id="student_number"
+                name="student_number"
+                type="text"
+                required
+                aria-required="true"
+                aria-label="Studentnummer"
+                pattern="[0-9]+"
+              />
+            </fieldset>
+          </section>
 
-        <section>
-          <h2>2. Vragen over het vak Web App From Scratch</h2>
+          <section class="js-section">
+            <h2>2. Vragen over het vak Web App From Scratch</h2>
 
-          <fieldset>
-            <legend>In welke weken heb je het vak Web App From Scratch gevolgd?</legend>
-      
-            <div>
-              <input type="radio" name="wafs_period" id="wafs_period_1" value="1" required aria-required="true">
-              <label for="wafs_period_1">Week 1 tot en met 4</label>
-            </div>
-            <div>
-              <input type="radio" name="wafs_period" id="wafs_period_2" value="2">
-              <label for="wafs_period_2">Week 5 tot en met 8</label>
-            </div>
-            <div>
-              <input type="radio" name="wafs_period" id="wafs_period_3" value="3">
-              <label for="wafs_period_3">Week 9 tot en met 12</label>
-            </div>
-          </fieldset>
+            <fieldset class="js-question" data-error="Vink een antwoord aan.">
+              <legend>
+                In welke weken heb je het vak Web App From Scratch gevolgd?
+              </legend>
 
-          <fieldset>
-            <legend>Van wie heb je les gekregen bij het vak Web App From Scratch?</legend>
+              <div>
+                <input
+                  type="radio"
+                  name="wafs_period"
+                  id="wafs_period_1"
+                  value="1"
+                  required
+                  aria-required="true"
+                />
+                <label for="wafs_period_1">Week 1 tot en met 4</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="wafs_period"
+                  id="wafs_period_2"
+                  value="2"
+                />
+                <label for="wafs_period_2">Week 5 tot en met 8</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="wafs_period"
+                  id="wafs_period_3"
+                  value="3"
+                />
+                <label for="wafs_period_3">Week 9 tot en met 12</label>
+              </div>
+            </fieldset>
 
-            <p>Meerdere antwoorden mogelijk.</p>
+            <fieldset
+              class="js-question"
+              data-error="Vink ten minste één persoon aan."
+            >
+              <legend>
+                Van wie heb je les gekregen bij het vak Web App From Scratch?
+              </legend>
 
-            <div>
-              <input type="checkbox" name="wafs_teacher" id="wafs_teacher_1">
-              <label for="wafs_teacher_1">Suus ten Voorde</label>
-            </div>
-            <div>
-              <input type="checkbox" name="wafs_teacher" id="wafs_teacher_2">
-              <label for="wafs_teacher_2">Joost Faber</label>
-            </div>
-            <div>
-              <input type="checkbox" name="wafs_teacher" id="wafs_teacher_3">
-              <label for="wafs_teacher_3">Robin Frugte</label>
-            </div>
-            <div>
-              <input type="checkbox" name="wafs_teacher" id="wafs_teacher_4">
-              <label for="wafs_teacher_4">Wouter van der Heijden</label>
-            </div>
-          </fieldset>
+              <p>Meerdere antwoorden mogelijk.</p>
 
-          <fieldset>
-            <legend>Wat vond je van het vak Web App From Scratch?</legend>
-            <p>Geef een cijfer van 1 tot en met 10, waar 1 de laagste score is en 10 de hoogste score.</p>
+              <div>
+                <input
+                  type="checkbox"
+                  name="wafs_teacher"
+                  id="wafs_teacher_1"
+                  value="1"
+                />
+                <label for="wafs_teacher_1">Suus ten Voorde</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="wafs_teacher"
+                  id="wafs_teacher_2"
+                  value="2"
+                />
+                <label for="wafs_teacher_2">Joost Faber</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="wafs_teacher"
+                  id="wafs_teacher_3"
+                  value="3"
+                />
+                <label for="wafs_teacher_3">Robin Frugte</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="wafs_teacher"
+                  id="wafs_teacher_4"
+                  value="4"
+                />
+                <label for="wafs_teacher_4">Wouter van der Heijden</label>
+              </div>
+            </fieldset>
 
-            <div class="scale-wrapper">
-              <input type="radio" name="wafs_rating" id="wafs_rating_1" value="1" required aria-required="true">
-              <label for="wafs_rating_1">1</label>
-              <input type="radio" name="wafs_rating" id="wafs_rating_2" value="2">
-              <label for="wafs_rating_2">2</label>
-              <input type="radio" name="wafs_rating" id="wafs_rating_3" value="3">
-              <label for="wafs_rating_3">3</label>
-              <input type="radio" name="wafs_rating" id="wafs_rating_4" value="4">
-              <label for="wafs_rating_4">4</label>
-              <input type="radio" name="wafs_rating" id="wafs_rating_5" value="5">
-              <label for="wafs_rating_5">5</label>
-              <input type="radio" name="wafs_rating" id="wafs_rating_6" value="6">
-              <label for="wafs_rating_6">6</label>
-              <input type="radio" name="wafs_rating" id="wafs_rating_7" value="7">
-              <label for="wafs_rating_7">7</label>
-              <input type="radio" name="wafs_rating" id="wafs_rating_8" value="8">
-              <label for="wafs_rating_8">8</label>
-              <input type="radio" name="wafs_rating" id="wafs_rating_9" value="9">
-              <label for="wafs_rating_9">9</label>
-              <input type="radio" name="wafs_rating" id="wafs_rating_10" value="10">
-              <label for="wafs_rating_10">10</label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Hoe moeilijk vond je het vak Web App From Scratch?</legend>
-            <select name="wafs_difficulty" id="wafs-difficulty">
-              <option value="" selected disabled>Geef je mening</option>
-              <option value="very_difficult">Heel moeilijk</option>
-              <option value="difficult">Een beetje moeilijk</option>
-              <option value="easy">Makkelijk</option>
-              <option value="verY_easy">Heel makkelijk</option>
-            </select>
-          </fieldset>
-          <fieldset>
-            <legend>Hoe duidelijk werd het vak Web App From Scratch uitgelegd?</legend>
-            <select name="wafs_clarity" id="wafs-clarity">
-              <option value="" selected disabled>Geef je mening</option>
-              <option value="">Ik begreep het nooit</option>
-              <option value="">Ik begreep bijna niks</option>
-              <option value="">Ik begreep ongeveer de helft</option>
-              <option value="">Ik begreep bijna alles</option>
-              <option value="">Ik begreep altijd alles</option>
-            </select>
-          </fieldset>
-          <fieldset>
-            <legend>Hoe goed vind je dat je het vak Web App From Scratch nu snapt?</legend>
-            <p>Geef jezelf een cijfer van 1 tot en met 10. Bij het cijfer 1 snap je er nog niks van. Het cijfer 10 betekent dat je alles snapt en niks meer over het vak kunt leren.</p>
-            <div class="scale-wrapper">
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_1" value="1" required aria-required="true">
-              <label for="wafs_rating_self_1">1</label>
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_2" value="2">
-              <label for="wafs_rating_self_2">2</label>
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_3" value="3">
-              <label for="wafs_rating_self_3">3</label>
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_4" value="4">
-              <label for="wafs_rating_self_4">4</label>
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_5" value="5">
-              <label for="wafs_rating_self_5">5</label>
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_6" value="6">
-              <label for="wafs_rating_self_6">6</label>
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_7" value="7">
-              <label for="wafs_rating_self_7">7</label>
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_8" value="8">
-              <label for="wafs_rating_self_8">8</label>
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_9" value="9">
-              <label for="wafs_rating_self_9">9</label>
-              <input type="radio" name="wafs_rating_self" id="wafs_rating_self_10" value="10">
-              <label for="wafs_rating_self_10">10</label>
-            </div>
-          </fieldset>
-        </section>
+            <fieldset class="js-question" data-error="Selecteer een cijfer.">
+              <legend>Wat vond je van het vak Web App From Scratch?</legend>
+              <p>
+                Geef een cijfer van 1 tot en met 10, waar 1 de laagste score is
+                en 10 de hoogste score.
+              </p>
 
-        <section>
-          <h2>3. Vragen over het vak CSS To The Rescue</h2>
-          <fieldset>
-            <legend>In welke weken heb je het vak CSS To The Rescue gevolgd?</legend>
-      
-            <div>
-              <input type="radio" name="cssttr_period" id="cssttr_period_1" value="1" required aria-required="true">
-              <label for="cssttr_period_1">Week 1 tot en met 4</label>
-            </div>
-            <div>
-              <input type="radio" name="cssttr_period" id="cssttr_period_2" value="2">
-              <label for="cssttr_period_2">Week 5 tot en met 8</label>
-            </div>
-            <div>
-              <input type="radio" name="cssttr_period" id="cssttr_period_3" value="3">
-              <label for="cssttr_period_3">Week 9 tot en met 12</label>
-            </div>
-          </fieldset>
+              <div class="scale-wrapper">
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_1"
+                  value="1"
+                  required
+                  aria-required="true"
+                />
+                <label for="wafs_rating_1">1</label>
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_2"
+                  value="2"
+                />
+                <label for="wafs_rating_2">2</label>
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_3"
+                  value="3"
+                />
+                <label for="wafs_rating_3">3</label>
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_4"
+                  value="4"
+                />
+                <label for="wafs_rating_4">4</label>
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_5"
+                  value="5"
+                />
+                <label for="wafs_rating_5">5</label>
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_6"
+                  value="6"
+                />
+                <label for="wafs_rating_6">6</label>
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_7"
+                  value="7"
+                />
+                <label for="wafs_rating_7">7</label>
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_8"
+                  value="8"
+                />
+                <label for="wafs_rating_8">8</label>
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_9"
+                  value="9"
+                />
+                <label for="wafs_rating_9">9</label>
+                <input
+                  type="radio"
+                  name="wafs_rating"
+                  id="wafs_rating_10"
+                  value="10"
+                />
+                <label for="wafs_rating_10">10</label>
+              </div>
+            </fieldset>
+            <fieldset class="js-question" data-error="Selecteer een antwoord.">
+              <legend>
+                Hoe moeilijk vond je het vak Web App From Scratch?
+              </legend>
+              <select
+                name="wafs_difficulty"
+                id="wafs-difficulty"
+                required
+                aria-required="true"
+              >
+                <option value="" selected disabled>Geef je mening</option>
+                <option value="very_difficult">Heel moeilijk</option>
+                <option value="difficult">Een beetje moeilijk</option>
+                <option value="easy">Makkelijk</option>
+                <option value="very_easy">Heel makkelijk</option>
+              </select>
+            </fieldset>
+            <fieldset class="js-question" data-error="Selecteer een antwoord.">
+              <legend>
+                Hoe duidelijk werd het vak Web App From Scratch uitgelegd?
+              </legend>
+              <select
+                name="wafs_clarity"
+                id="wafs-clarity"
+                required
+                aria-required="true"
+              >
+                <option value="" selected disabled>Geef je mening</option>
+                <option value="1">Ik begreep het nooit</option>
+                <option value="2">Ik begreep bijna niks</option>
+                <option value="3">Ik begreep ongeveer de helft</option>
+                <option value="4">Ik begreep bijna alles</option>
+                <option value="5">Ik begreep altijd alles</option>
+              </select>
+            </fieldset>
+            <fieldset class="js-question" data-error="Selecteer een cijfer.">
+              <legend>
+                Hoe goed vind je dat je het vak Web App From Scratch nu snapt?
+              </legend>
+              <p>
+                Geef jezelf een cijfer van 1 tot en met 10. Bij het cijfer 1
+                snap je er nog niks van. Het cijfer 10 betekent dat je alles
+                snapt en niks meer over het vak kunt leren.
+              </p>
+              <div class="scale-wrapper">
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_1"
+                  value="1"
+                  required
+                  aria-required="true"
+                />
+                <label for="wafs_rating_self_1">1</label>
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_2"
+                  value="2"
+                />
+                <label for="wafs_rating_self_2">2</label>
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_3"
+                  value="3"
+                />
+                <label for="wafs_rating_self_3">3</label>
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_4"
+                  value="4"
+                />
+                <label for="wafs_rating_self_4">4</label>
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_5"
+                  value="5"
+                />
+                <label for="wafs_rating_self_5">5</label>
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_6"
+                  value="6"
+                />
+                <label for="wafs_rating_self_6">6</label>
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_7"
+                  value="7"
+                />
+                <label for="wafs_rating_self_7">7</label>
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_8"
+                  value="8"
+                />
+                <label for="wafs_rating_self_8">8</label>
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_9"
+                  value="9"
+                />
+                <label for="wafs_rating_self_9">9</label>
+                <input
+                  type="radio"
+                  name="wafs_rating_self"
+                  id="wafs_rating_self_10"
+                  value="10"
+                />
+                <label for="wafs_rating_self_10">10</label>
+              </div>
+            </fieldset>
+          </section>
 
-          <fieldset>
-            <legend>Van wie heb je les gekregen bij het vak CSS To The Rescue?</legend>
+          <section class="js-section">
+            <h2>3. Vragen over het vak CSS To The Rescue</h2>
+            <fieldset class="js-question" data-error="Vink een antwoord aan.">
+              <legend>
+                In welke weken heb je het vak CSS To The Rescue gevolgd?
+              </legend>
 
-            <p>Meerdere antwoorden mogelijk.</p>
+              <div>
+                <input
+                  type="radio"
+                  name="cssttr_period"
+                  id="cssttr_period_1"
+                  value="1"
+                  required
+                  aria-required="true"
+                />
+                <label for="cssttr_period_1">Week 1 tot en met 4</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="cssttr_period"
+                  id="cssttr_period_2"
+                  value="2"
+                />
+                <label for="cssttr_period_2">Week 5 tot en met 8</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="cssttr_period"
+                  id="cssttr_period_3"
+                  value="3"
+                />
+                <label for="cssttr_period_3">Week 9 tot en met 12</label>
+              </div>
+            </fieldset>
 
-            <div>
-              <input type="checkbox" name="cssttr_teacher" id="cssttr_teacher_1">
-              <label for="cssttr_teacher_1">Vasilis van Gemert</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cssttr_teacher" id="cssttr_teacher_2">
-              <label for="cssttr_teacher_2">Sanne 't Hooft</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cssttr_teacher" id="cssttr_teacher_3">
-              <label for="cssttr_teacher_3">Thijs Spijker</label>
-            </div>
-            <div>
-              <input type="checkbox" name="cssttr_teacher" id="cssttr_teacher_4">
-              <label for="cssttr_teacher_4">Leonie Smits</label>
-            </div>
-          </fieldset>
+            <fieldset
+              class="js-question"
+              data-error="Vink ten minste één persoon aan."
+            >
+              <legend>
+                Van wie heb je les gekregen bij het vak CSS To The Rescue?
+              </legend>
 
-          <fieldset>
-            <legend>Wat vond je van het vak CSS To The Rescue?</legend>
-            <p>Geef een cijfer van 1 tot en met 10, waar 1 de laagste score is en 10 de hoogste score.</p>
-            <div class="scale-wrapper">
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_1" value="1" required aria-required="true">
-              <label for="cssttr_rating_1">1</label>
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_2" value="2">
-              <label for="cssttr_rating_2">2</label>
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_3" value="3">
-              <label for="cssttr_rating_3">3</label>
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_4" value="4">
-              <label for="cssttr_rating_4">4</label>
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_5" value="5">
-              <label for="cssttr_rating_5">5</label>
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_6" value="6">
-              <label for="cssttr_rating_6">6</label>
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_7" value="7">
-              <label for="cssttr_rating_7">7</label>
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_8" value="8">
-              <label for="cssttr_rating_8">8</label>
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_9" value="9">
-              <label for="cssttr_rating_9">9</label>
-              <input type="radio" name="cssttr_rating" id="cssttr_rating_10" value="10">
-              <label for="cssttr_rating_10">10</label>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Hoe moeilijk vond je het vak CSS To The Rescue?</legend>
-            <select name="cssttr_difficulty" id="cssttr-difficulty">
-              <option value="" selected disabled>Geef je mening</option>
-              <option value="very_difficult">Heel moeilijk</option>
-              <option value="difficult">Een beetje moeilijk</option>
-              <option value="easy">Makkelijk</option>
-              <option value="verY_easy">Heel makkelijk</option>
-            </select>
-          </fieldset>
-          <fieldset>
-            <legend>Hoe duidelijk werd het vak CSS To The Rescue uitgelegd?</legend>
-            <select name="cssttr_clarity" id="cssttr-clarity">
-              <option value="" selected disabled>Geef je mening</option>
-              <option value="">Ik begreep het nooit</option>
-              <option value="">Ik begreep bijna niks</option>
-              <option value="">Ik begreep ongeveer de helft</option>
-              <option value="">Ik begreep bijna alles</option>
-              <option value="">Ik begreep altijd alles</option>
-            </select>
-          </fieldset>
-          <fieldset>
-            <legend>Hoe goed vind je dat je het vak CSS To The Rescue nu snapt?</legend>
-            <p>Geef jezelf een cijfer van 1 tot en met 10. Bij het cijfer 1 snap je er nog niks van. Het cijfer 10 betekent dat je alles snapt en niks meer over het vak kunt leren.</p>
-            <div class="scale-wrapper">
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_1" value="1" required aria-required="true">
-              <label for="cssttr_rating_self_1">1</label>
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_2" value="2">
-              <label for="cssttr_rating_self_2">2</label>
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_3" value="3">
-              <label for="cssttr_rating_self_3">3</label>
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_4" value="4">
-              <label for="cssttr_rating_self_4">4</label>
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_5" value="5">
-              <label for="cssttr_rating_self_5">5</label>
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_6" value="6">
-              <label for="cssttr_rating_self_6">6</label>
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_7" value="7">
-              <label for="cssttr_rating_self_7">7</label>
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_8" value="8">
-              <label for="cssttr_rating_self_8">8</label>
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_9" value="9">
-              <label for="cssttr_rating_self_9">9</label>
-              <input type="radio" name="cssttr_rating_self" id="cssttr_rating_self_10" value="10">
-              <label for="cssttr_rating_self_10">10</label>
-            </div>
-          </fieldset>
-        </section>
+              <p>Meerdere antwoorden mogelijk.</p>
 
-        <button type="submit">Verstuur antwoorden</button>
-      </form>
-    </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="cssttr_teacher"
+                  id="cssttr_teacher_1"
+                  value="1"
+                />
+                <label for="cssttr_teacher_1">Vasilis van Gemert</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="cssttr_teacher"
+                  id="cssttr_teacher_2"
+                  value="2"
+                />
+                <label for="cssttr_teacher_2">Sanne 't Hooft</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="cssttr_teacher"
+                  id="cssttr_teacher_3"
+                  value="3"
+                />
+                <label for="cssttr_teacher_3">Thijs Spijker</label>
+              </div>
+              <div>
+                <input
+                  type="checkbox"
+                  name="cssttr_teacher"
+                  id="cssttr_teacher_4"
+                  value="4"
+                />
+                <label for="cssttr_teacher_4">Leonie Smits</label>
+              </div>
+            </fieldset>
 
-  </main>
-</body>
+            <fieldset class="js-question" data-error="Selecteer een cijfer.">
+              <legend>Wat vond je van het vak CSS To The Rescue?</legend>
+              <p>
+                Geef een cijfer van 1 tot en met 10, waar 1 de laagste score is
+                en 10 de hoogste score.
+              </p>
+              <div class="scale-wrapper">
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_1"
+                  value="1"
+                  required
+                  aria-required="true"
+                />
+                <label for="cssttr_rating_1">1</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_2"
+                  value="2"
+                />
+                <label for="cssttr_rating_2">2</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_3"
+                  value="3"
+                />
+                <label for="cssttr_rating_3">3</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_4"
+                  value="4"
+                />
+                <label for="cssttr_rating_4">4</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_5"
+                  value="5"
+                />
+                <label for="cssttr_rating_5">5</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_6"
+                  value="6"
+                />
+                <label for="cssttr_rating_6">6</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_7"
+                  value="7"
+                />
+                <label for="cssttr_rating_7">7</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_8"
+                  value="8"
+                />
+                <label for="cssttr_rating_8">8</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_9"
+                  value="9"
+                />
+                <label for="cssttr_rating_9">9</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating"
+                  id="cssttr_rating_10"
+                  value="10"
+                />
+                <label for="cssttr_rating_10">10</label>
+              </div>
+            </fieldset>
+            <fieldset class="js-question" data-error="Selecteer een antwoord.">
+              <legend>Hoe moeilijk vond je het vak CSS To The Rescue?</legend>
+              <select
+                name="cssttr_difficulty"
+                id="cssttr-difficulty"
+                required
+                aria-required="true"
+              >
+                <option value="" selected disabled>Geef je mening</option>
+                <option value="very_difficult">Heel moeilijk</option>
+                <option value="difficult">Een beetje moeilijk</option>
+                <option value="easy">Makkelijk</option>
+                <option value="very_easy">Heel makkelijk</option>
+              </select>
+            </fieldset>
+            <fieldset class="js-question" data-error="Selecteer een antwoord.">
+              <legend>
+                Hoe duidelijk werd het vak CSS To The Rescue uitgelegd?
+              </legend>
+              <select
+                name="cssttr_clarity"
+                id="cssttr-clarity"
+                required
+                aria-required="true"
+              >
+                <option value="" selected disabled>Geef je mening</option>
+                <option value="1">Ik begreep het nooit</option>
+                <option value="2">Ik begreep bijna niks</option>
+                <option value="3">Ik begreep ongeveer de helft</option>
+                <option value="4">Ik begreep bijna alles</option>
+                <option value="5">Ik begreep altijd alles</option>
+              </select>
+            </fieldset>
+            <fieldset class="js-question" data-error="Selecteer een cijfer.">
+              <legend>
+                Hoe goed vind je dat je het vak CSS To The Rescue nu snapt?
+              </legend>
+              <p>
+                Geef jezelf een cijfer van 1 tot en met 10. Bij het cijfer 1
+                snap je er nog niks van. Het cijfer 10 betekent dat je alles
+                snapt en niks meer over het vak kunt leren.
+              </p>
+              <div class="scale-wrapper">
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_1"
+                  value="1"
+                  required
+                  aria-required="true"
+                />
+                <label for="cssttr_rating_self_1">1</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_2"
+                  value="2"
+                />
+                <label for="cssttr_rating_self_2">2</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_3"
+                  value="3"
+                />
+                <label for="cssttr_rating_self_3">3</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_4"
+                  value="4"
+                />
+                <label for="cssttr_rating_self_4">4</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_5"
+                  value="5"
+                />
+                <label for="cssttr_rating_self_5">5</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_6"
+                  value="6"
+                />
+                <label for="cssttr_rating_self_6">6</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_7"
+                  value="7"
+                />
+                <label for="cssttr_rating_self_7">7</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_8"
+                  value="8"
+                />
+                <label for="cssttr_rating_self_8">8</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_9"
+                  value="9"
+                />
+                <label for="cssttr_rating_self_9">9</label>
+                <input
+                  type="radio"
+                  name="cssttr_rating_self"
+                  id="cssttr_rating_self_10"
+                  value="10"
+                />
+                <label for="cssttr_rating_self_10">10</label>
+              </div>
+            </fieldset>
+          </section>
+
+          <div class="navigation js-navigation">
+            <button type="submit" class="button js-submit">
+              Verstuur antwoorden
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
 </html>
