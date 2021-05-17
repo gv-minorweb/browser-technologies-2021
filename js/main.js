@@ -20,7 +20,7 @@ import getFormData from './getFormData.js'
   let prevBtn
 
   // Check localStorage and fill form with data
-  formData = getFormData('formData') = {}
+  formData = getFormData('formData') || {}
 
   if (formData && Object.keys(formData).length !== 0) {
     formInputs.forEach((input) => {
