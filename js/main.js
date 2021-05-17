@@ -85,6 +85,10 @@ import getFormData from './getFormData.js'
     prevBtn = nextBtn.cloneNode()
     prevBtn.innerText = 'Terug'
 
+    if (activeQuestion === 1) {
+      prevBtn.classList.add('is-invisible')
+    }
+
     nextBtn.addEventListener('click', navigate('next'))
     prevBtn.addEventListener('click', navigate('prev'))
 
@@ -172,6 +176,10 @@ import getFormData from './getFormData.js'
       }
 
       else if (direction === 'prev') {
+        if (prevQuestion || prevSection) {
+          updateActiveQuestion(activeQuestion - 1)
+        }
+
         // Is not last question
         if (prevQuestion) {
           currentQuestion.classList.add('is-hidden')
@@ -186,10 +194,12 @@ import getFormData from './getFormData.js'
           prevSection.classList.remove('is-hidden')
           prevSection.classList.add('is-active')
         }
+      }
 
-        if (prevQuestion || prevSection) {
-          updateActiveQuestion(activeQuestion - 1)
-        }
+      if (activeQuestion === 1) {
+        prevBtn.classList.add('is-invisible')
+      } else {
+        prevBtn.classList.remove('is-invisible')
       }
 
       if (activeQuestion === formQuestions.length) {

@@ -74,6 +74,11 @@ section {
   display: none;
 }
 
+.is-invisible {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .is-active {
   display: block;
 }
@@ -108,7 +113,6 @@ button,
   outline: none;
   line-height: 1.5;
   cursor: pointer;
-  transition: .2s ease-in-out;
 }
 
 .button:hover {
@@ -126,10 +130,6 @@ fieldset {
   margin: 0;
   margin-top: 2rem;
   border: 0;
-}
-
-fieldset + fieldset {
-  margin-top: 3rem;
 }
 
 legend {
