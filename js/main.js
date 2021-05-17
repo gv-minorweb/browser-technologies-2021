@@ -20,9 +20,9 @@ import getFormData from './getFormData.js'
   let prevBtn
 
   // Check localStorage and fill form with data
-  formData = getFormData('formData') || {}
+  formData = getFormData('formData') = {}
 
-  if (formData) {
+  if (formData && Object.keys(formData).length !== 0) {
     formInputs.forEach((input) => {
       const elName = input.getAttribute('name')
 
@@ -257,7 +257,9 @@ import getFormData from './getFormData.js'
       formData[elName] = elValue
     }
 
-    localStorage.setItem('formData', JSON.stringify(formData))
+    if ('localStorage' in window) {
+      localStorage.setItem('formData', JSON.stringify(formData))
+    }
   }
 
   function handleFormSubmit(e) {

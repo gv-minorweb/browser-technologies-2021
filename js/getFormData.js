@@ -1,9 +1,9 @@
 import getLocalStorage from './getLocalStorage.js'
 
 function getFormData() {
-  let formData
+  let formData = null
 
-  if (window.localStorage) {
+  if ('localStorage' in window) {
     formData = getLocalStorage('formData')
   }
 
